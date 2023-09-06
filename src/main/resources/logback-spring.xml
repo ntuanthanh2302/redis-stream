@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>D:/ELK/docker-loging-elk-master/logstash/log/logstash.txt</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger sử dụng appender đã cấu hình -->
+    <logger name="com.example.elkdemo.controller" level="INFO">
+        <appender-ref ref="FILE" />
+    </logger>
+
+<!--    <logger name="org.springframework.data.elasticsearch.client" level="trace"/>-->
+
+</configuration>
